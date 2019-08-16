@@ -1,1 +1,2 @@
 include ':app'
+sdk.dir = /home/dina/android
