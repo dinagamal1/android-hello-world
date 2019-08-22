@@ -21,7 +21,7 @@ pipeline {
         stage('Deliver') {
             steps {
                  
-                sh 'gradle connectedAndroidTest'
+                sh './gradle connectedAndroidTest'
 
             }
         }
