@@ -24,6 +24,9 @@ pipeline {
                 sh '''
                 chmod a+x ./gradlew
                 ./gradlew connectedAndroidTest --info
+                adb devices 
+                pwd
+                adb install app/build/outputs/apk/app-debug.apk
                 '''
 
             }
