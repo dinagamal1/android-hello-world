@@ -22,8 +22,8 @@ pipeline {
             steps {
                  
                 sh '''
-                chmod +x ./gradlew
-                ./gradle connectedAndroidTest
+                chmod a+x ./gradlew
+                ./gradlew connectedAndroidTest
                 '''
 
             }
