@@ -23,7 +23,7 @@ pipeline {
                  
                 sh '''
                 chmod a+x ./gradlew
-                ./gradlew connectedAndroidTest
+                ./gradlew connectedAndroidTest --info
                 '''
 
             }
