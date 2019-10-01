@@ -1,3 +1,4 @@
+@Grab(group='org.codehaus.groovy.modules.http-builder', module='http-builder', version='0.7' )
 import java.lang.*
 import java.util.*
 import java.io.*
