@@ -1,28 +1,22 @@
+def http = new URL("https://hpmc12.mobilecenter.io/rest/client/login").openConnection() as HttpURLConnection
+    http.setRequestMethod('POST')
+    http.setDoOutput(true)
+    http.setRequestProperty("Content-Type", "application/json; charset=UTF-8")
 
-import java.lang.*
-import java.util.*
-import java.io.*
-import java.net.*
-import groovy.lang.*
-import groovy.util.*
-import java.math.BigInteger
-import java.math.BigDecimal
-import groovyx.net.http.ContentType
+    http.outputStream.write("Body")
+  
+    http.connect()
 
+    def responsLogin = [:]    
 
-http.request(POST) {
-    uri.path = 'https://hpmc12.mobilecenter.io/rest/client/login'
-    body = [name: 'ahmed.abdelhamid2@vodafone.com', password: 'Voda@123']
-    requestContentType = ContentType.JSON
-
-    response.success = { resp ->
-        println "Success! ${resp.status}"
+    if (http.responseCode == 200) {
+  
+        responsLogin = new JsonSlurper().parseText(http.inputStream.getText('UTF-8'))
+    } else {
+    
+       responsLogin = new JsonSlurper().parseText(http.errorStream.getText('UTF-8'))
     }
 
-    response.failure = { resp ->
-        println "Request failed with status ${resp.status}"
-    }
-}
 
 
 pipeline {
