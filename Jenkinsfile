@@ -2,9 +2,6 @@ pipeline {
     agent none
     stages{
     
-  stage('build in android and send apk for mc')
-    {
-    
         stage('android-slave')
         {
           agent {
@@ -94,6 +91,6 @@ pipeline {
             
         
         
-    }}
+    }
 }
     
