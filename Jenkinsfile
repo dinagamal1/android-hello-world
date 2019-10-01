@@ -11,10 +11,10 @@ def http = new URL("https://hpmc12.mobilecenter.io/rest/client/login").openConne
 
     if (http.responseCode == 200) {
   
-        responsLogin = new JsonSlurper().parseText(http.inputStream.getText('UTF-8'))
+        responsLogin = 200
     } else {
     
-       responsLogin = new JsonSlurper().parseText(http.errorStream.getText('UTF-8'))
+       responsLogin = 505
     }
 
 
