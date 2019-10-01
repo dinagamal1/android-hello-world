@@ -53,6 +53,8 @@ pipeline {
                         stage("build") {
                             steps {
                                 script{
+                                    try{
+                                    def body = '{"name":"dina.gamal1@vodafone.com","password":"Voda@123"}'
     def http = new URL("https://hpmc12.mobilecenter.io/rest/client/login").openConnection() as HttpURLConnection
     http.setRequestMethod('POST')
     http.setDoOutput(true)
@@ -70,6 +72,11 @@ pipeline {
     
        responsLogin = 505
     }
+                                            println response
+
+                                    } catch (Exception e) {
+    println "execption"
+                                    }
                                 
                                 }                            }
                         }
