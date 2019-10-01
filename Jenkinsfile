@@ -1,5 +1,7 @@
 pipeline {
     agent none
+    stages{
+    
   stage('build in android and send apk for mc')
     {
         parallel{
@@ -69,5 +71,5 @@ pipeline {
         
         
     }}}
-    
+}
     
