@@ -6,6 +6,8 @@ import groovy.lang.*
 import groovy.util.*
 import java.math.BigInteger
 import java.math.BigDecimal
+import groovyx.net.http.ContentType
+
 
 http.request(POST) {
     uri.path = 'https://hpmc12.mobilecenter.io/rest/client/login'
