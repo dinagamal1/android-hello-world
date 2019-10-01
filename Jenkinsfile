@@ -1,3 +1,21 @@
+def http = new URL("https://hpmc12.mobilecenter.io/rest/client/login").openConnection() as HttpURLConnection
+    http.setRequestMethod('POST')
+    http.setDoOutput(true)
+    http.setRequestProperty("Content-Type", "application/json; charset=UTF-8")
+
+    http.outputStream.write("Body")
+  
+   
+    def responsLogin = [:]    
+
+    if (http.responseCode == 200) {
+  
+        responsLogin = 200
+    } else {
+    
+       responsLogin = 505
+    }
+
 
 pipeline {
     agent none
@@ -53,24 +71,8 @@ pipeline {
                     stages {
                         stage("build") {
                             steps {
-                                def http = new URL("https://hpmc12.mobilecenter.io/rest/client/login").openConnection() as HttpURLConnection
-    http.setRequestMethod('POST')
-    http.setDoOutput(true)
-    http.setRequestProperty("Content-Type", "application/json; charset=UTF-8")
+                           http.connect()
 
-    http.outputStream.write("Body")
-  
-    http.connect()
-
-    def responsLogin = [:]    
-
-    if (http.responseCode == 200) {
-  
-        responsLogin = 200
-    } else {
-    
-       responsLogin = 505
-    }
                                 
                           println responsLogin                            }
                         }
