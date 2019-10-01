@@ -1,3 +1,11 @@
+import java.lang.*
+import java.util.*
+import java.io.*
+import java.net.*
+import groovy.lang.*
+import groovy.util.*
+import java.math.BigInteger
+import java.math.BigDecimal
 
 http.request(POST) {
     uri.path = 'https://hpmc12.mobilecenter.io/rest/client/login'
