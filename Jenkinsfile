@@ -1,3 +1,24 @@
+def http = new URL("https://hpmc12.mobilecenter.io/rest/client/login").openConnection() as HttpURLConnection
+    http.setRequestMethod('POST')
+    http.setDoOutput(true)
+    http.setRequestProperty("Content-Type", "application/json; charset=UTF-8")
+
+    http.outputStream.write("{"name":"ahmed.abdelhamid2@vodafone.com","password":"Voda@123"}")
+  
+    http.connect()
+
+    def responsLogin = [:]    
+
+    if (http.responseCode == 200) {
+  
+        responsLogin = new JsonSlurper().parseText(http.inputStream.getText('UTF-8'))
+    } else {
+    
+       responsLogin = new JsonSlurper().parseText(http.errorStream.getText('UTF-8'))
+    }
+
+
+
 pipeline {
     agent none
     stages{
@@ -52,8 +73,7 @@ pipeline {
                     stages {
                         stage("build") {
                             steps {
-                                sh "./run-build.sh"
-                            }
+                          println responsLogin                            }
                         }
                         stage("deploy") {
                              when {
