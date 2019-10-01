@@ -71,7 +71,7 @@ pipeline {
                                             println responsLogin
 
                                     } catch (Exception e) {
-    println "execption"
+    println e
                                     }
                                 
                                 }                            }
