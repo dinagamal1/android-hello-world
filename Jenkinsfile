@@ -34,7 +34,7 @@ pipeline {
                 adb devices 
                 pwd
                 adb install -r app/build/outputs/apk/app-debug-androidTest.apk
-                scp app/build/outputs/apk/app-debug-androidTest.apk Administrator@10.0.0.7:/C:/Users/Administrator/Desktop 
+               sshpass -p 'ChangeMe!' scp app/build/outputs/apk/app-debug-androidTest.apk Administrator@10.0.0.7:/C:/Users/Administrator/Desktop 
 
                 '''
 
