@@ -4,7 +4,6 @@ pipeline {
     
   stage('build in android and send apk for mc')
     {
-        parallel{
     
         stage('android-slave')
         {
@@ -95,6 +94,6 @@ pipeline {
             
         
         
-    }}}
+    }}
 }
     
