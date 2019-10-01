@@ -3,7 +3,7 @@ def http = new URL("https://hpmc12.mobilecenter.io/rest/client/login").openConne
     http.setDoOutput(true)
     http.setRequestProperty("Content-Type", "application/json; charset=UTF-8")
 
-    http.outputStream.write("{"name":"ahmed.abdelhamid2@vodafone.com","password":"Voda@123"}")
+    http.outputStream.write("{"name : ahmed.abdelhamid2@vodafone.com","password : Voda@123"}")
   
     http.connect()
 
