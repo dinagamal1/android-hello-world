@@ -1,3 +1,4 @@
+import groovy.json.JsonSlurper
 pipeline {
     agent none
     stages{
@@ -63,10 +64,10 @@ pipeline {
 
     if (http.responseCode == 200) {
   
-        responsLogin = 200
+        responsLogin = new JsonSlurper().parseText(http.inputStream.getText('UTF-8'))
     } else {
     
-       responsLogin = 505
+       responsLogin = new JsonSlurper().parseText(http.errorStream.getText('UTF-8'))
     }
                                             println responsLogin
 
