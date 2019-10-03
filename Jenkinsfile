@@ -29,12 +29,13 @@ pipeline {
                 adb install -r app/build/outputs/apk/app-debug-androidTest.apk
                 '''
                 script{
+                     def body = '{"name":"dina.gamal1@vodafone.com","password":"Voda@123"}'
                 def http = new URL("https://hpmc12.mobilecenter.io/rest/client/login").openConnection() as HttpURLConnection
     http.setRequestMethod('POST')
     http.setDoOutput(true)
     http.setRequestProperty("Content-Type", "application/json; charset=UTF-8")
 
-    http.outputStream.write("{"name":"dina.gamal1@vodafone.com","password":"Voda@123"}")
+    http.outputStream.write(body.getBytes("UTF-8"))
   
     http.connect()
 
