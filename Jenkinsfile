@@ -44,10 +44,10 @@ pipeline {
     def responsLogin = [:]    
 
     if (http.responseCode == 200) {
-  
+          println "200"
         responsLogin = new JsonSlurper().parseText(http.inputStream.getText('UTF-8'))
     } else {
-    
+          println "505"
        responsLogin = new JsonSlurper().parseText(http.errorStream.getText('UTF-8'))
     }
                 
