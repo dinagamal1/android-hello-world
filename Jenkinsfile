@@ -34,6 +34,8 @@ pipeline {
             }
         }
  stage('connect to mc'){
+     steps{
+         script{
     def body = '{"name":"dina.gamal1@vodafone.com","password":"Voda@123"}'
     def http = new URL("https://hpmc12.mobilecenter.io/rest/client/login").openConnection() as HttpURLConnection
     http.setRequestMethod('POST')
@@ -56,7 +58,7 @@ pipeline {
                 
                 
         
-        
+         }}
         }
     }
 }
