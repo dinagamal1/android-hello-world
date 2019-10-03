@@ -21,16 +21,13 @@ node('emulator'){
                      }
 stage('connect to mc'){
 
-                def creds = "dina.gamal1@vodafone.com:Voda@123"
+      def creds = "dina.gamal1@vodafone.com:Voda@123"
 String auth = creds.bytes.encodeBase64().toString()
 httpRequest  consoleLogResponseBody: true, 
              httpMode: 'POST',
+	     authentication: 'mc',
              url: "https://hpmc12.mobilecenter.io/rest/client/login",                       
-             contentType: 'APPLICATION_JSON',
-             customHeaders:[[name:'Authorization', value:
-	"name":"ahmed.abdelhamid2@vodafone.com",
-	"password":"Voda@123" ]]
-                
-        
+             contentType: 'APPLICATION_JSON'                
+	
          }
 }
