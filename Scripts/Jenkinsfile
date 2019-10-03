@@ -27,7 +27,10 @@ httpRequest  consoleLogResponseBody: true,
              httpMode: 'POST',
              url: "https://hpmc12.mobilecenter.io/rest/client/login",                       
              contentType: 'APPLICATION_JSON',
-             customHeaders:[[name:'Authorization', value:"Basic ${auth}"]]
+             customHeaders:[[name:'Authorization', value:"{
+	"name":"ahmed.abdelhamid2@vodafone.com",
+	"password":"Voda@123"
+}"]]
                 
         
          }
