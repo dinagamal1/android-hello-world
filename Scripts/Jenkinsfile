@@ -23,7 +23,9 @@ stage('connect to mc'){
 
                 def creds = "dina.gamal1@vodafone.com:Voda@123"
 String auth = creds.bytes.encodeBase64().toString()
-httpRequest  consoleLogResponseBody: true,  
+httpRequest  consoleLogResponseBody: true, 
+             httpMode: POST,
+             contentType: APPLICATION_JSON,
              url: "https://hpmc12.mobilecenter.io/rest/client/login",                       
              customHeaders:[[name:'Authorization', value:"Basic ${auth}"]]
                 
