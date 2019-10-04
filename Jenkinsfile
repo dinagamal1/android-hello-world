@@ -40,7 +40,7 @@ pipeline {
 	chmod 777 Scripts/mc.groovy
 	
 	printenv | grep GROOVY
-	./Scripts/mc.groovy 
+	groovy Scripts/mc.groovy 
 	
 	'''
      }
