@@ -21,7 +21,7 @@ node('emulator'){
                      }
 stage('connect to mc'){            
 	
-def response = httpRequest acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', httpMode: 'PATCH', requestBody: patchOrg, url: "https://hpmc12.mobilecenter.io/rest/client/login", customHeaders: [[name: 'name', value: 'dina.gamal1@vodafone.com'],[name: 'password', value: 'Voda@123']], consoleLogResponseBody: true
+def response = httpRequest acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "https://hpmc12.mobilecenter.io/rest/client/login", customHeaders: [[name: 'name', value: 'dina.gamal1@vodafone.com'],[name: 'password', value: 'Voda@123']], consoleLogResponseBody: true
 
          }
 }
