@@ -27,7 +27,6 @@ pipeline {
                 ./gradlew connectedAndroidTest --info
                 adb devices 
                 pwd
-                adb install -r app/build/outputs/apk/app-debug-androidTest.apk
                 '''
             }
         }
