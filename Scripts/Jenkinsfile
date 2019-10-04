@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 import groovy.json.*
 	def jsonLiteral = [ "name" : "ahmed.abdelhamid2@vodafone.com", "password" : "Voda@123" ]
-
+        def sting = JsonOutput.prettyPrint(JsonOutput.toJson(jsonLiteral))
 
 node('emulator'){
       stage('Build') {
@@ -25,7 +25,7 @@ stage('connect to mc'){
 	
  
 
-	def response = httpRequest requestBody: JsonOutput.prettyPrint(JsonOutput.toJson(jsonLiteral)), acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "https://hpmc12.mobilecenter.io/rest/client/login", customHeaders: [name: 'Content-Type', value: 'application/json'], consoleLogResponseBody: true
+	def response = httpRequest requestBody: string , acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "https://hpmc12.mobilecenter.io/rest/client/login", customHeaders: [name: 'Content-Type', value: 'application/json'], consoleLogResponseBody: true
 
          }
 }
