@@ -2,6 +2,7 @@
 
 node('emulator'){
       stage('Build') {
+	           checkout scm
                 sh 'sudo chown dina:dina /dev/kvm'
             
                       }
@@ -20,7 +21,13 @@ node('emulator'){
                      }
 stage('connect to mc'){         
 	
-	sh ' groovy Scripts/mc.groovy '
+	sh '''
+	
+	ls
+	pwd
+	groovy Scripts/mc.groovy 
+	
+	'''
  
 
 
