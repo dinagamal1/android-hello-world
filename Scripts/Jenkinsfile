@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 import groovy.json.*
-	def jsonLiteral = [ "name" : "ahmed.abdelhamid2@vodafone.com", "password" : "Voda@123" ]
-        def sting = JsonOutput.prettyPrint(JsonOutput.toJson(jsonLiteral))
+//	def jsonLiteral = [ "name" : "ahmed.abdelhamid2@vodafone.com", "password" : "Voda@123" ]
+//        def sting = JsonOutput.prettyPrint(JsonOutput.toJson(jsonLiteral))
 
 node('emulator'){
       stage('Build') {
