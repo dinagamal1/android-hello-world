@@ -1,5 +1,7 @@
 #!/usr/bin/env groovy
 import groovy.json.JsonSlurper
+import groovy.json.JsonOutput
+
 
 node('emulator'){
       stage('Build') {
@@ -19,9 +21,10 @@ node('emulator'){
                 adb install -r app/build/outputs/apk/app-debug-androidTest.apk
                 '''
                      }
-stage('connect to mc'){            
-	
-def response = httpRequest requestBody: JsonSlurper().parseText("name":"ahmed.abdelhamid2@vodafone.com","password":"Voda@123"), acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "https://hpmc12.mobilecenter.io/rest/client/login", customHeaders: [name: 'Content-Type', value: 'application/json'], consoleLogResponseBody: true
+stage('connect to mc'){         
+	def myJson = '{"name":"ahmed.abdelhamid2@vodafone.com","password":"Voda@123"}'
+
+def response = httpRequest requestBody: JsonOutput.toJson(myJson), acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "https://hpmc12.mobilecenter.io/rest/client/login", customHeaders: [name: 'Content-Type', value: 'application/json'], consoleLogResponseBody: true
 
          }
 }
