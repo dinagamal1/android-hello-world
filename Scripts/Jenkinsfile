@@ -20,9 +20,9 @@ node('emulator'){
                      }
 stage('connect to mc'){         
 	
+	sh ' groovy Scripts/mc.groovy '
  
 
-	def response = httpRequest requestBody: 'string' , acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "https://hpmc12.mobilecenter.io/rest/client/login", customHeaders: [name: 'Content-Type', value: 'application/json'], consoleLogResponseBody: true
 
          }
 }
