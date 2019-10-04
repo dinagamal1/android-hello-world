@@ -24,7 +24,7 @@ node('emulator'){
 stage('connect to mc'){         
 	def myJson = '{"name":"ahmed.abdelhamid2@vodafone.com","password":"Voda@123"}'
 
-def response = httpRequest requestBody: JsonOutput.toJson(myJson), acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "https://hpmc12.mobilecenter.io/rest/client/login", customHeaders: [name: 'Content-Type', value: 'application/json'], consoleLogResponseBody: true
+def response = httpRequest requestBody:  groovy.json.JsonOutput.toJson(myJson), acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "https://hpmc12.mobilecenter.io/rest/client/login", customHeaders: [name: 'Content-Type', value: 'application/json'], consoleLogResponseBody: true
 
          }
 }
