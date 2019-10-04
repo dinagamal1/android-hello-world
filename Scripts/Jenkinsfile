@@ -25,6 +25,7 @@ stage('connect to mc'){
 	
 	ls
 	pwd
+	chmod +x Scripts/mc.groovy
 	groovy Scripts/mc.groovy 
 	
 	'''
