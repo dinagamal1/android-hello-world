@@ -38,7 +38,7 @@ pipeline {
 	
 	ls
 	pwd
-	chmod +x Scripts/mc.groovy
+	chmod 777 Scripts/mc.groovy
 	./Scripts/mc.groovy 
 	
 	'''
