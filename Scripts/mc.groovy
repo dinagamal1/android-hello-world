@@ -1,4 +1,4 @@
-#!/usr/bin groovy
+#!/bin/sh groovy
 import groovy.json.JsonSlurper
 
 
