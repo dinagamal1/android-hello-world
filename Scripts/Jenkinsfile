@@ -21,7 +21,7 @@ node('emulator'){
                      }
 stage('connect to mc'){            
 	
-def response = httpRequest requestBody: JsonOutput.toJson("name":"ahmed.abdelhamid2@vodafone.com","password":"Voda@123"), acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "https://hpmc12.mobilecenter.io/rest/client/login", customHeaders: [name: 'Content-Type', value: 'application/json'], consoleLogResponseBody: true
+def response = httpRequest requestBody: JsonSlurper().parseText("name":"ahmed.abdelhamid2@vodafone.com","password":"Voda@123"), acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "https://hpmc12.mobilecenter.io/rest/client/login", customHeaders: [name: 'Content-Type', value: 'application/json'], consoleLogResponseBody: true
 
          }
 }
