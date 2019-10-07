@@ -33,11 +33,12 @@ pipeline {
  stage('connect to mc'){
      steps{
 	     
-	httpRequest contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: '''{
+	httpRequest consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: '''{
 	"name":"ahmed.abdelhamid2@vodafone.com",
 	"password":"Voda@123"
-	}''', responseHandle: 'NONE', url: 'https://hpmc12.mobilecenter.io/rest/client/login'
+	}''', responseHandle: 'LEAVE_OPEN', url: 'https://hpmc12.mobilecenter.io/rest/client/login'
       
+	httpRequest consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'POST', responseHandle: 'LEAVE_OPEN', uploadFile: '/home/dina/workspace/emulator/app/build/outputs/apk/app-debug.apk', url: 'https://hpmc12.mobilecenter.io/rest/apps?enforceUpload=false'
      	sh '''
 	
 	ls
