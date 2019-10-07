@@ -32,6 +32,11 @@ pipeline {
         }
  stage('connect to mc'){
      steps{
+	     
+	httpRequest contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: '''{
+	"name":"ahmed.abdelhamid2@vodafone.com",
+	"password":"Voda@123"
+	}''', responseHandle: 'NONE', url: 'https://hpmc12.mobilecenter.io/rest/client/login'
       
      	sh '''
 	
