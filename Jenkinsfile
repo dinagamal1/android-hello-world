@@ -1,3 +1,5 @@
+import groovy.json.JsonSlurper
+
 
 pipeline {
     agent {
@@ -32,13 +34,17 @@ pipeline {
         }
  stage('connect to mc'){
      steps{
+	     script {
 	     
-	httpRequest consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: '''{
-	"name":"ahmed.abdelhamid2@vodafone.com",
-	"password":"Voda@123"
-	}''', responseHandle: 'LEAVE_OPEN', url: 'https://hpmc12.mobilecenter.io/rest/client/login'
-      
-	httpRequest consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'POST', responseHandle: 'LEAVE_OPEN', uploadFile: '/home/dina/workspace/emulator/app/build/outputs/apk/app-debug.apk', url: 'https://hpmc12.mobilecenter.io/rest/apps?enforceUpload=false'
+		def response = httpRequest consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: '''{
+		"name":"ahmed.abdelhamid2@vodafone.com",
+		"password":"Voda@123"
+		}''', responseHandle: 'LEAVE_OPEN', url: 'https://hpmc12.mobilecenter.io/rest/client/login'
+		def json = new JsonSlurper().parseText(response.content)
+                echo "Status: ${response.status}"
+                echo "Dogs: ${json.message.keySet()}"
+	     
+	     }
      	sh '''
 	
 	ls
