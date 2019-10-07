@@ -18,6 +18,7 @@ println "hello world"
 
     if (http.responseCode == 200) {
             println "200" 
+            println "hello"
         responsLogin = new JsonSlurper().parseText(http.inputStream.getText('UTF-8'))
     } else {
     
