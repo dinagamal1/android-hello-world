@@ -44,6 +44,10 @@ pipeline {
                 echo "Status: ${response.status}"
 		echo "Status: ${response}"
                 echo "Dogs: ${json}"
+	     	def json1 = new JsonSlurper().parseText(response)
+                echo "Status: ${response.status}"
+		echo "Status: ${response}"
+                echo "Dogs: ${json}"
 	     
 	     }
      	sh '''
