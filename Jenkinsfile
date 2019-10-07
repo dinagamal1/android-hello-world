@@ -42,7 +42,8 @@ pipeline {
 		}''', responseHandle: 'LEAVE_OPEN', url: 'https://hpmc12.mobilecenter.io/rest/client/login'
 		def json = new JsonSlurper().parseText(response.content)
                 echo "Status: ${response.status}"
-                echo "Dogs: ${json.message.keySet()}"
+		echo "Status: ${response}"
+                echo "Dogs: ${json}"
 	     
 	     }
      	sh '''
