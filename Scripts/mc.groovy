@@ -20,8 +20,14 @@ println "hello world"
             println "200" 
             println "hello"
         responsLogin = new JsonSlurper().parseText(http.inputStream.getText('UTF-8'))
-        println responsLogin
     } else {
     
        responsLogin = new JsonSlurper().parseText(http.errorStream.getText('UTF-8'))
     }
+
+   def sessionidPair
+   def token1Pair
+   http.response.responseHeaders["Set-Cookie"].each { 
+    if (it.contains("sessionid=")) sessionidPair = it
+    if (it.contains("token1=")) token1Pair = it
+   }
