@@ -20,6 +20,7 @@ println "hello world"
             println "200" 
             println "hello"
         responsLogin = new JsonSlurper().parseText(http.inputStream.getText('UTF-8'))
+        println responsLogin
     } else {
     
        responsLogin = new JsonSlurper().parseText(http.errorStream.getText('UTF-8'))
