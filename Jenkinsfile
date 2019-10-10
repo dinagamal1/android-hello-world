@@ -6,7 +6,8 @@ pipeline {
        label 'emulator'
           }
 	 environment {
-       FILENAME = "apps"
+       FILENAME = readFile 'apps'
+
 		 
     }
     stages {
@@ -19,9 +20,7 @@ pipeline {
         stage('Test') {
               steps {
       
-		        script {
-                    env.FILENAME = readFile 'apps'
-                }
+		
                 echo "${env.FILENAME}"
                                   sh 'sudo chown dina:dina /dev/kvm'
 
