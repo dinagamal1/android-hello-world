@@ -6,13 +6,21 @@ pipeline {
        label 'emulator'
           }
 	 environment {
-       FILENAME = readFile 'apps.txt'
+       FILENAME = "apps"
 
 		 
     }
     stages {
         stage('Build') {
             steps {
+		    script {
+                            try {                    
+                                env.FILENAME = readFile 'apps.txt'
+                                echo "${env.FILENAME}"
+                            }
+                            catch(Exception e) {
+                                //do something i.e echo 'File not found'
+                            }
    //             sh 'gradle build'		    
                 sh 'sudo chown dina:dina /dev/kvm'
             }
@@ -20,8 +28,6 @@ pipeline {
         stage('Test') {
               steps {
       
-		
-                echo "${env.FILENAME}"
                                   sh 'sudo chown dina:dina /dev/kvm'
 
 
