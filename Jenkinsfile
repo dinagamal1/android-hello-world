@@ -17,6 +17,8 @@ pipeline {
                             catch(Exception e) {
                               echo 'File not found'
                             }
+			    
+		    }
    //             sh 'gradle build'		    
                 sh 'sudo chown dina:dina /dev/kvm'
             }
