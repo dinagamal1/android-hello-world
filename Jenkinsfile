@@ -6,7 +6,7 @@ pipeline {
        label 'emulator'
           }
 	  environment {
-    APPS = " sh 'cat apps' "
+    APPS =  sh 'cat apps' 
     }
     stages {
         stage('Build') {
