@@ -6,7 +6,7 @@ pipeline {
        label 'emulator'
           }
 	  environment {
-    APPS =  sh 'cat apps' 
+  
     }
     stages {
         stage('Build') {
@@ -20,6 +20,11 @@ pipeline {
         stage('Test') {
               steps {
       
+		        script {
+                    env.FILENAME = readFile 'apps'
+                }
+                echo "${env.FILENAME}"
+
   //      sh 'gradle test'
                                   sh 'sudo chown dina:dina /dev/kvm'
 
