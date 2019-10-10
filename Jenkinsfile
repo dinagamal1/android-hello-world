@@ -12,7 +12,7 @@ pipeline {
         stage('Build') {
             steps {
    //             sh 'gradle build'
-		  sh ' echo env.APPS  '
+	echo env.APPS
 		    
                 sh 'sudo chown dina:dina /dev/kvm'
             }
