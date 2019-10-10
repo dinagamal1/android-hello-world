@@ -6,7 +6,7 @@ pipeline {
        label 'emulator'
           }
 	 environment {
-       FILENAME = readFile 'apps'
+       FILENAME = readFile 'apps.txt'
 
 		 
     }
