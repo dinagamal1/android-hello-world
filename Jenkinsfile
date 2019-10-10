@@ -6,14 +6,16 @@ pipeline {
        label 'emulator'
           }
 	  environment {
-    APPS =sh 'cat apps '
+    APPS = sh 'cat apps '
     }
     stages {
         stage('Build') {
             steps {
    //             sh 'gradle build'
-		  
-		    sh 'printenv | grep APPS'
+		  sh'
+		    echo env.APPS
+		    
+		    '
 		    
                 sh 'sudo chown dina:dina /dev/kvm'
             }
