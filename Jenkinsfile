@@ -5,11 +5,7 @@ pipeline {
     agent {
        label 'emulator'
           }
-	 environment {
-       FILENAME = "apps"
 
-		 
-    }
     stages {
         stage('Build') {
             steps {
@@ -19,7 +15,7 @@ pipeline {
                                 echo "${env.FILENAME}"
                             }
                             catch(Exception e) {
-                                //do something i.e echo 'File not found'
+                              echo 'File not found'
                             }
    //             sh 'gradle build'		    
                 sh 'sudo chown dina:dina /dev/kvm'
