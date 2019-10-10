@@ -5,6 +5,10 @@ pipeline {
     agent {
        label 'emulator'
           }
+	 environment {
+       FILENAME = "apps"
+		 
+    }
     stages {
         stage('Build') {
             steps {
