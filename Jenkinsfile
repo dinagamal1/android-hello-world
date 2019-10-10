@@ -5,10 +5,15 @@ pipeline {
     agent {
        label 'emulator'
           }
+	  environment {
+    APPS =sh 'cat apps '
+    }
     stages {
         stage('Build') {
             steps {
    //             sh 'gradle build'
+		  
+		    
                 sh 'sudo chown dina:dina /dev/kvm'
             }
         }
