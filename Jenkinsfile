@@ -5,15 +5,10 @@ pipeline {
     agent {
        label 'emulator'
           }
-	  environment {
-  
-    }
     stages {
         stage('Build') {
             steps {
-   //             sh 'gradle build'
-	echo env.APPS
-		    
+   //             sh 'gradle build'		    
                 sh 'sudo chown dina:dina /dev/kvm'
             }
         }
@@ -24,8 +19,6 @@ pipeline {
                     env.FILENAME = readFile 'apps'
                 }
                 echo "${env.FILENAME}"
-
-  //      sh 'gradle test'
                                   sh 'sudo chown dina:dina /dev/kvm'
 
 
