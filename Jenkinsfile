@@ -13,6 +13,7 @@ pipeline {
             steps {
    //             sh 'gradle build'
 		  
+		    sh 'printenv | grep APPS'
 		    
                 sh 'sudo chown dina:dina /dev/kvm'
             }
