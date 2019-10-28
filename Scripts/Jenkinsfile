@@ -26,11 +26,12 @@ stage('connect to mc'){
 		}
 	
 	sh '''
-	
+	ls
+	ls
 	ls
 	pwd
-	chmod +x Scripts/mc.groovy
-	groovy Scripts/mc.groovy 
+	chmod +x Scripts/mc.js
+	node Scripts/mc.js
 	
 	'''
  
