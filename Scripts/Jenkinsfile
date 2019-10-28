@@ -22,9 +22,7 @@ node('emulator'){
                      }
 stage('connect to mc'){   
 	
-	nodejs('Latest') {
-    		console.log("hello")
-		}
+	
 	
 	sh '''
 	ls
