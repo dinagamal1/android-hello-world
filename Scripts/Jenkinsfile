@@ -19,7 +19,11 @@ node('emulator'){
                 adb install -r app/build/outputs/apk/app-debug-androidTest.apk
                 '''
                      }
-stage('connect to mc'){         
+stage('connect to mc'){   
+	
+	nodejs('Latest') {
+    		console.log("hello")
+		}
 	
 	sh '''
 	
