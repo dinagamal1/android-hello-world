@@ -13,11 +13,12 @@ node('emulator'){
      stage('Deliver') {
                 sh '''
                 chmod a+x ./gradlew
-                ./gradlew connectedAndroidTest --info
-                adb devices 
-                pwd
-                adb install -r app/build/outputs/apk/app-debug-androidTest.apk
                 '''
+	        // ./gradlew connectedAndroidTest --info
+                // adb devices 
+                // pwd
+                // adb install -r app/build/outputs/apk/app-debug-androidTest.apk
+
                      }
 stage('connect to mc'){   
 	
